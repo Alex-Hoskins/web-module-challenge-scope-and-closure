@@ -29,10 +29,17 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   1. What is the difference between counter1 and counter2?
   
+  Counter one is reaching up within the function to receive a value for count. Count is defined within its scope. Counter 2 is reaching up and outside of the function to find value for count. Count in this case is a global variable.
+
   2. Which of the two uses a closure? How can you tell?
   
+  Scenario one uses a closure.
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+  counter2 be better?  
+
+  Counter 1 is preferable in most cases because you are defining the variable within the function. This makes code more clear and can avoid confusion. Counter 2 might be preferable if you need to access the global variable outside of the function, but should only be done intentionally when necessary.
+
 */
 
 // counter1 code
