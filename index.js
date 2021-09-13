@@ -33,7 +33,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
   2. Which of the two uses a closure? How can you tell?
   
-  Scenario one uses a closure. It is accessing a data outside of its scope.
+  Scenario one uses a closure. It is accessing data outside of its scope.
 
   3. In what scenario would the counter1 code be preferable? In what scenario would 
   counter2 be better?  
