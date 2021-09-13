@@ -62,10 +62,9 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random()*3)
 }
-
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -81,17 +80,31 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
-}
+function finalScore(cb, innings){
+  const totalScore=[];
+  let homeScore=0;
+  let awayScore=0;
+  for(let i=0; i<innings; i++){
+    homeScore= homeScore + cb();
+    awayScore= awayScore + cb();
+    }  
+  //for loop ends
+ return {
+   Home: homeScore,
+   Away: awayScore
+ }//return ends
+}//function ends
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inningCB) {
+  return{
+    Home: inningCB(),
+    Away: inningCB()
+  }
 }
 
 
@@ -136,9 +149,24 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+
+function scoreboard(getInningScoreCB, inningCB, number) {
+  let boxScore = [];
+  let homeScore=0;
+  let awayScore=0;
+ for(let i=0; i < number;i++)
+ {
+   const currentInning= getInningScoreCB(inningCB);
+   homeScore= homeScore + currentInning.Home
+   awayScore= awayScore + currentInning.Away
+   boxScore.push(`Inning ${i+1}: Away ${awayScore} - Home ${homeScore}`)
+ }//end of forloop
+ if(homeScore===awayScore){
+      boxScore.push(`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`)}
+   else{boxScore.push(`Final Score: Away ${awayScore} - Home ${homeScore}`)}
+  return boxScore
+}//end of function
+
 
 
 
