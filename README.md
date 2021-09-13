@@ -83,8 +83,15 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+Name is is using closure as it is reaching outside its scope for the information.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+The number can change but name is always the same.
+
 c. What is the lexical scope of `newRoll`? 
+newRoll is block scoped.
 
 
 ### Task 3 - Stretch Goals
